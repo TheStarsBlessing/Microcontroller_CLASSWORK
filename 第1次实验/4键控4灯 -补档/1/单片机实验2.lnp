@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"project2.obj" 
+TO "单片机实验2" 
+RAMSIZE(256) 

@@ -1,0 +1,60 @@
+C51 COMPILER V9.01   PROJECT1                                                              03/23/2025 18:29:58 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE PROJECT1
+OBJECT MODULE PLACED IN project1.OBJ
+COMPILER INVOKED BY: D:\Soft\tool\KeilC51v9.01a\C51\BIN\C51.EXE project1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "SST89x5x4.H"
+   2          #include "intrins.h"                      //这个头文件定义了右移函数_crol_()
+   3          
+   4          #define LED_PORT P2                               //定义P2口
+   5          
+   6          unsigned char n;
+   7          
+   8          void Delay_t_100ms(unsigned char t)     //@11.0592MHz
+   9          {
+  10   1              while(t--)
+  11   1              {
+  12   2                      unsigned char i, j;
+  13   2      
+  14   2                      i = 180;
+  15   2                      j = 73;
+  16   2                      do
+  17   2                      {
+  18   3                              while (--j);
+  19   3                      } while (--i);
+  20   2              }
+  21   1      }
+  22                                                            //100ms延时函数，本函数由STC-ISP生成
+  23          
+  24          
+  25          
+  26          void main()
+  27          {
+  28   1              LED_PORT=0xFE;                            //
+  29   1              while(1)
+  30   1              {
+  31   2                      for(n=0;n<8;n++)                        
+  32   2                      {
+  33   3                              LED_PORT=_crol_(LED_PORT,1);            //开发板上从左到右是0~8位，因此这里是左移函数
+  34   3                              Delay_t_100ms(5);
+  35   3                      }                                                 //右移循环
+  36   2              }
+  37   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     56    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

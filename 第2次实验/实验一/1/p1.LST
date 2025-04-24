@@ -1,0 +1,69 @@
+C51 COMPILER V9.01   P1                                                                    03/27/2025 16:24:44 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE P1
+OBJECT MODULE PLACED IN p1.OBJ
+COMPILER INVOKED BY: D:\Soft\tool\KeilC51v9.01a\C51\BIN\C51.EXE p1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<SST89x5x4.H>
+   2          
+   3          unsigned char code table[]={0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
+   4          
+   5          void delay(unsigned char delay_time) 
+   6          {
+   7   1              unsigned char i,j;
+   8   1      
+   9   1              for(i=0;i<=delay_time;i++) 
+  10   1              {
+  11   2                      for(j=0;j<=200;j++);
+  12   2              }
+  13   1      }
+  14          
+  15          void init_tx() 
+  16          {
+  17   1              EA=1; EX0=1; IP=0x00;
+  18   1      }
+  19          
+  20          void main()
+  21          {
+  22   1              unsigned char i;
+  23   1              init_tx();
+  24   1              while(1)
+  25   1              {
+  26   2                      for(i=0;i<6;i++)
+  27   2                      {
+  28   3                              P1=table[i]; 
+  29   3                              delay(200);
+  30   3                      }
+  31   2              }
+  32   1      }
+  33          
+  34          void tx0() interrupt 0
+  35          {
+  36   1              unsigned char i;
+  37   1              P1=0x00;
+  38   1              delay(200);
+  39   1              for(i=0;i<=15;i++)//注意，闪烁8次应该进行16次电平反转 P1=~P1;
+  40   1              {
+  41   2                      P1=~P1;
+  42   2                      delay(200);
+  43   2              }
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    101    ----
+   CONSTANT SIZE    =      8    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.01   P1                                                                    03/27/2025 16:24:44 PAGE 2   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

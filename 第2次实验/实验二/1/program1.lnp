@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"p1.obj" 
+TO "program1" 
+RAMSIZE(256) 

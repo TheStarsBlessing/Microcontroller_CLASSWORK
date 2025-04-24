@@ -1,0 +1,41 @@
+C51 COMPILER V9.01   PROJECT2                                                              03/22/2025 22:34:39 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE PROJECT2
+OBJECT MODULE PLACED IN project2.OBJ
+COMPILER INVOKED BY: D:\Soft\tool\KeilC51v9.01a\C51\BIN\C51.EXE project2.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "SST89x5x4.H"
+   2          #define uchar unsigned char
+   3          #define unit unsigned int
+   4          sbit in = P1^0;
+   5          sbit out = P1^7;
+   6          
+   7          void main(void)
+   8          {
+   9   1      
+  10   1      while(1)
+  11   1              {
+  12   2              in = 1;
+  13   2              if (in == 0)
+  14   2              out = 0;
+  15   2              else
+  16   2              out = 1;
+  17   2              }
+  18   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     13    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
