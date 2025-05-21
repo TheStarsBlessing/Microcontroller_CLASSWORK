@@ -1,31 +1,31 @@
 #include "reg52.h"
 
 void main(void) {
-    // å®šä¹‰ä¸€ä¸ª3x3çŸ©é˜µ
+    // ¶¨ÒåÒ»¸ö3x3¾ØÕó
     int matrix[3][3] = {
         {1, 2, 3},
         {4, 5, 6},
         {7, 8, 9}
     };
 
-    int primaryDiagonalSum = 0;  // ä¸»å¯¹è§’çº¿å’Œ
-    int secondaryDiagonalSum = 0; // å‰¯å¯¹è§’çº¿å’Œ
-    int totalDiagonalSum;       // æ€»å¯¹è§’çº¿å’Œ
-    int i; // å¾ªç¯å˜é‡
+    int primaryDiagonalSum = 0;  // Ö÷¶Ô½ÇÏßºÍ
+    int secondaryDiagonalSum = 0; // ¸±¶Ô½ÇÏßºÍ
+    int totalDiagonalSum;       // ×Ü¶Ô½ÇÏßºÍ
+    int i; // Ñ­»·±äÁ¿
 
-    // è®¡ç®—ä¸»å¯¹è§’çº¿å’Œå‰¯å¯¹è§’çº¿çš„å’Œ
+    // ¼ÆËãÖ÷¶Ô½ÇÏßºÍ¸±¶Ô½ÇÏßµÄºÍ
     for (i = 0; i < 3; i++) {
-        primaryDiagonalSum += matrix[i][i];          // ä¸»å¯¹è§’çº¿å…ƒç´ 
-        secondaryDiagonalSum += matrix[i][2 - i];     // å‰¯å¯¹è§’çº¿å…ƒç´ 
+        primaryDiagonalSum += matrix[i][i];          // Ö÷¶Ô½ÇÏßÔªËØ
+        secondaryDiagonalSum += matrix[i][2 - i];     // ¸±¶Ô½ÇÏßÔªËØ
     }
 
-    // æ€»å’Œä¸ºä¸¤æ¡å¯¹è§’çº¿å…ƒç´ ä¹‹å’Œ
+    // ×ÜºÍÎªÁ½Ìõ¶Ô½ÇÏßÔªËØÖ®ºÍ
     totalDiagonalSum = primaryDiagonalSum + secondaryDiagonalSum-matrix[1][1];
 
-    // è¿™é‡Œå‡è®¾æœ‰ä¸€ä¸ªå‡½æ•°å¯ä»¥è¾“å‡ºç»“æœåˆ°LEDæˆ–è€…ä¸²å£ç­‰è®¾å¤‡
+    // ÕâÀï¼ÙÉèÓĞÒ»¸öº¯Êı¿ÉÒÔÊä³ö½á¹ûµ½LED»òÕß´®¿ÚµÈÉè±¸
     // displayResult(totalDiagonalSum);  
 
     while (1) {
-        // ç­‰å¾…å¾ªç¯
+        // µÈ´ıÑ­»·
     }
 }
